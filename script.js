@@ -92,7 +92,7 @@ class Particle {
   drawline() {
     ctx.strokeStyle = this.color;
     for (let par of particlesArray) {
-      if (distance([par.x, this.x], [par.y, this.y]) < 100) {
+      if (distance([par.x, this.x], [par.y, this.y]) < 300) {
         ctx.beginPath();
         ctx.moveTo(par.x, par.y);
         ctx.lineTo(this.x, this.y);
