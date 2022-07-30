@@ -63,6 +63,7 @@ class Particle {
     this.speedX = Math.random() * 5 - 2.5;
     this.speedY = Math.random() * 5 - 2.5;
     this.color = "hsl(" + (hue % 360) + ",100%,50%)";
+    // this.color = randomColorGen();
   }
 
   //methods
@@ -92,7 +93,7 @@ class Particle {
   drawline() {
     ctx.strokeStyle = this.color;
     for (let par of particlesArray) {
-      if (distance([par.x, this.x], [par.y, this.y]) < 300) {
+      if (distance([par.x, this.x], [par.y, this.y]) < 100) {
         ctx.beginPath();
         ctx.moveTo(par.x, par.y);
         ctx.lineTo(this.x, this.y);
@@ -114,7 +115,7 @@ const particlesArray = [];
 
 function handleParticles() {
   for (let particle of particlesArray) {
-    ctx.lineWidth = 0.5;
+    ctx.lineWidth = 0.2;
 
     particle.draw();
     particle.drawline();
@@ -130,7 +131,7 @@ async function animate() {
   // p.update();
   //   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = `rgba(0,0,0,0.3)`;
+  ctx.fillStyle = `rgba(0,0,0,0.1)`;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   handleParticles();
   hue++;
